@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "triada-mesh"
+version = "1.0.0"
+description = "Autonomous Multi-Agent Relay, Watchdog & Cross-Harness Knowledge Mesh (Antigravity, Hermes, OpenCode)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+    { name = "Triada Team", email = "team@triada.mesh" }
+]
+keywords = ["multi-agent", "autonomous-relay", "watchdog", "antigravity", "hermes", "opencode", "mcp"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "mcp>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+]
+
+[project.scripts]
+triada-install = "scripts.install:install"
+triada-doctor = "scripts.doctor:doctor"
+
+[tool.setuptools.packages.find]
+where = ["src"]
