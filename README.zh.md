@@ -102,6 +102,19 @@ Triada 核心引擎与账户来源完全解耦：
 
 ---
 
+## 接入其他智能体环境 (Claude Code, Cursor, Cline, Aider)
+
+Triada 架构完全独立于具体智能体环境，外部 AI 工具可通过 3 个层级接入系统：
+
+1. **第 1 层 (原生 MCP 客户端)**: **Claude Code, Cursor, Cline, Roo Code, OpenHands** 仅需 5 分钟标准 JSON 配置 (`python -m triada.mesh.server`) 即可接入，即刻获得 Obsidian 知识库与跨智能体多模型会诊能力。
+2. **第 2 层 (中继调度适配器)**: 通过 `src/triada/adapters/` 模块化适配器实现双向闭环接力中继 (`Mark -> Claude Code -> Kat`)。
+3. **第 3 层 (通用 Git 看门狗)**: 非 MCP 工具（如 **Aider** 或普通 Python 脚本）通过 `tasks/<id>/status.json` 与 git diff 在 Jev Pacer 看门狗监督下自动重试与纠错。
+
+📖 **详细接入指南与配置示例**: [docs/external-harnesses.md](docs/external-harnesses.md)
+
+---
+
 ## 开源协议
 
 MIT License。详见 [LICENSE](LICENSE) 文件。
+

@@ -104,6 +104,19 @@ Triada cleanly separates core orchestration from credential sources:
 
 ---
 
+## Supporting External Harnesses (Claude Code, Cursor, Cline, Aider)
+
+Triada is completely harness-agnostic. Any AI coding tool can connect through 3 flexible tiers:
+
+1. **Tier 1 (Instant MCP)**: **Claude Code, Cursor, Cline, Roo Code, OpenHands** connect in 5 minutes via standard JSON config (`python -m triada.mesh.server`), gaining immediate read/write access to the Obsidian Vault and peer cross-consultation.
+2. **Tier 2 (Relay Adapter)**: Full bi-directional participation in the autonomous round-robin relay cycle (`Mark -> Claude Code -> Kat`) via modular adapters in `src/triada/adapters/`.
+3. **Tier 3 (Git Watchdog)**: Non-MCP tools like **Aider** or custom Python scripts interact through `tasks/<id>/status.json` and git diffs under Jev Pacer supervision.
+
+📖 **Full Step-by-Step Guide & Configs**: [docs/external-harnesses.md](docs/external-harnesses.md)
+
+---
+
 ## License
 
 MIT License. See [LICENSE](LICENSE) for details.
+

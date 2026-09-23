@@ -104,6 +104,19 @@ python tests/run_tests.py
 
 ---
 
+## Подключение внешних харнессов (Claude Code, Cursor, Cline, Aider)
+
+Архитектура Триады полностью харнесс-агностична. Любой внешний AI-агент подключается через 3 гибких уровня:
+
+1. **Уровень 1 (Нативный MCP)**: **Claude Code, Cursor, Cline, Roo Code, OpenHands** подключаются за 5 минут через стандартный JSON-конфиг (`python -m triada.mesh.server`), получая прямой доступ к общей базе знаний Obsidian Vault и консультациям с моделями Триады.
+2. **Уровень 2 (Адаптеры эстафеты)**: Полноценное двустороннее участие во взаимной эстафете (`Марк -> Claude Code -> Кат`) через модульные адаптеры в `src/triada/adapters/`.
+3. **Уровень 3 (Git-надзиратель Jev)**: Любые инструменты без MCP (например, **Aider** или локальные Python-скрипты) взаимодействуют через `tasks/<id>/status.json` и git diff под контролем Jev Watchdog.
+
+📖 **Пошаговое руководство и примеры конфигов**: [docs/external-harnesses.md](docs/external-harnesses.md)
+
+---
+
 ## Лицензия
 
 MIT License. См. файл [LICENSE](LICENSE).
+
