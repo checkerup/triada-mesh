@@ -104,6 +104,20 @@ Triada cleanly separates core orchestration from credential sources:
 
 ---
 
+## Autonomous Triada Council Skill (`triada-council`)
+
+Triada Mesh includes a pre-configured, cross-harness skill in [`skills/triada-council/`](skills/triada-council/):
+- **Natural Language Auto-Dispatch**: Triggers automatically on `консилиум триады`, `триада реши`, `запусти консилиум`, or `/triada-council`.
+- **Session Archaeological Ingestion**: Pass any past session ID (e.g. `20260923_023804_05b757`), and the system will automatically parse past chat history directly from SQLite/transcripts, isolate unsolved dilemmas, and convene the council.
+- **Cognitive Triad & Jev Arbitration**:
+  - **Mark (Antigravity)**: Strategic synthesis & architectural roadmaps.
+  - **Kat (Hermes)**: Empirical verification, server daemons, live testing.
+  - **Nika (OpenCode)**: Diff surgery, risk audit, logical critique.
+  - **Jev (TypeSafe System One)**: Independent judge and arbiter verifying deliverables against specifications.
+- **Anti-Substitution Lock**: Strictly forbids agents from replacing the external 3-agent council with internal local subagents, guaranteeing true cognitive diversity.
+
+---
+
 ## Supporting External Harnesses (Claude Code, Cursor, Cline, Aider)
 
 Triada is completely harness-agnostic. Any AI coding tool can connect through 3 flexible tiers:
